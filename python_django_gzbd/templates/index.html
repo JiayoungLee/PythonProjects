@@ -1,0 +1,76 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{# 把模板包含 #}
+{#{% include "fragments/header.html" %}#}
+{# 父模板 #}
+{#{% block template %}#}
+{##}
+{#{% endblock template %}#}
+{#{% include "fragments/sideBar.html" %}#}
+{#{% include "fragments/footer.html" %}#}
+{##}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>*** Manager System</title>
+
+    <!-- 引入css -->
+    <!-- <link th:href="@{http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css}" rel="stylesheet" > -->
+    <!-- <link th:href="${'/css/sbDemo.css'}" rel="stylesheet" /> -->
+
+    <link href="/static/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/static/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="/static/css/custom.css" rel="stylesheet"/>
+
+    <!-- 引入 js -->
+    <!--  引入本地的js文件 $-->
+    <script src="/static/plugin/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="/static/plugin/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+    <!-- 引入网上的js文件 @-->
+    <script src="https://cdn.bootcss.com/layer/2.1/layer.js" type="text/javascript"></script>
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"
+              type="text/javascript"></script>
+
+    <!-- 删除确认框-->
+    <script src="/static/plugin/bootbox/bootbox.js" type="text/javascript"></script>
+
+
+</head>
+<body class="nav-md">
+
+    <div class="container body">
+        <div class="main_container">
+
+           {# 把模板包含 #}
+            {% include "fragments/header.html" %}
+            {% include "fragments/sideBar.html" %}
+            {# 父模板 #}
+            {% block template %}
+
+            {% endblock template %}
+            {% include "fragments/footer.html" %}
+
+        </div>
+    </div>
+
+
+
+<!--引入 js-->
+<script src="/static/js/custom.js" type="text/javascript"></script>
+
+</body>
+</html>
