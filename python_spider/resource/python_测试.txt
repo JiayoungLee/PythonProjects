@@ -1,0 +1,140 @@
+一，选择题
+	以下哪个不是python解释器 D
+		CPython
+		IPython
+		Jython
+		py
+	下列哪个表达式在Python中是非法的？	B
+		x = y = z = 1
+		x = (y = z + 1)
+		x, y = y, x
+		x += y
+	print("%d %% %d"%(3, 5)) 输出结果是？A	
+		3 % 5
+		3 %% 5
+		2
+		1
+	“今年第一季度GDP提高了x%”，x为float值，格式化字符串，x保留两位小数，下面哪个是正确的？	C
+		print("今年第一季度GDP提高了%.2f"%(22.234,))
+		print("今年第一季度GDP提高了%.2f%"%(22.234,))
+		print("今年第一季度GDP提高了%.2f%%"%(22.234,))
+		print("今年第一季度GDP提高了{0}%".format(22.234))
+	l = ["cdsa", 32, 33.2, None, True];l.pop();print(l);打印结果是：	C
+		["cdsa", 32, 33.2, True]
+		["cdsa", 32, None, True]
+		["cdsa", 32, 33.2, None]
+		[32, 33.2, None, True]
+	print(15 // 2);		B
+		1
+		7
+		7.5
+		8
+	下面哪个不是 python 的数据类型		D
+		int
+		str
+		set
+		double
+	*args 代表什么参数		B
+		位置参数
+		可变参数
+		可变关键字参数
+		命名关键字参数
+	函数多个返回值，实际上返回的是什么数据类型？	C
+		list
+		set
+		tuple
+		dict
+	安装Django2.0.7版本，使用的什么命令？	C
+		pip install django
+		pip install django=2.0.7
+		pip install django==2.0.7
+		pip install django version=2.0.7
+
+二、填空题
+	字符串前面添加u、r、b分别代表什么？	
+		u 表示unicode字符串
+		r 表示非转义的原始字符串
+		b 表示bytes类型字符串
+		
+	requests模块请求远程服务器，如何设置相应编码？
+		requests.encoding = 所要设置的编码
+		
+	windows下执行python的方式；
+		创建python文件
+		cmd,跳到python文件目录下
+		python python文件名
+		
+	创建python package，会自动生成什么文件？
+		__init__.py
+		
+	python变量作用域有哪些？
+		模块、类、函数
+		
+
+三、问答题
+	python命名规则？
+		总规则：英文字母、数字和下划线，不能以数字开头，扩展名：.py
+		模块：全小写，单词间下划线分隔；
+		类名：小写，多单词下划线分隔，也可以驼峰法，私有类以下划线开头；
+		函数名：全小写，私有函数以下划线开始；
+		变量名：全小写，多单词采用下划线间隔，或者驼峰法；
+		常量：全大写，多单词用下划线间隔。
+		
+	set删除操作中，pop、remove的区别？
+		pop：删除随意一个元素
+		remove：需要指定删除的元素名，删除指定元素
+		
+	list使用+=和append函数的区别？
+		+=：=后面的list里面的元素合并到list上
+		append：作为list的元素追加到list里面去
+		
+	使用bs4解析响应内容，获取某div（class为aaa）下所有span节点；
+		bs = BeautifulSoup(r.text, "html.parser");
+		span_list = bs.find(name="div", attrs={"class": "aaa"}).find_all(name='span');
+		
+	简述Django操作流程、组件的作用；
+		流程：
+			安装Django	pip install django ；
+			创建项目  django-admin startproject python_django_gzbd
+			运行项目  python manage.py runserver 0.0.0.0:8080
+			浏览器访问：http://127.0.0.1:8080/
+			配置数据库信息
+			创建app django-admin startapp my_app
+			创建 model
+			进行迁移	
+				python manage.py makemigrations my_app ---- 检测模型是否有变更
+				python manage.py migrate my_app ---- 创建表结构，表名为：app名称_模型名
+			数据库操作
+				控制器 编写urls
+				配置templates
+				service 编写 views
+				对应的页面
+		组件作用：
+			容器：
+				settings：Django 项目的设置/配置；
+				urls.py：路径接口匹配；
+				wsgi.py：web服务网关接口
+			app：
+				migrations：数据移植模块，其目录下内容都是系统生成的；
+				admin.py：该应用下的后台管理系统配置；
+				app.py：该应用的一些配置，Django-1.9会自动已生成，之前的版本没有；
+				models：数据模块，存放实体 bean，与数据库表对应；
+				tests.py：自动化测试模块，可以利用脚本进行自动化测试；
+				views.py：视图模块，执行相应的代码所在的模块，代码逻辑处理的主要地点，项目大部分代码均在这里编写；
+
+
+四、编程题
+	定义一个函数，接受 0 个或多个参数，返回累计乘积；
+		def test_mult(*num):
+			count = 1;
+			if len(num)==0:
+				return "您没有输入参数";
+			else:			
+				for i in num:
+					count *= num;
+				return count;
+				
+	
+	定义一个函数，去掉字符串前后的空格；
+		def test_strip(str1):
+			return str1.strip();

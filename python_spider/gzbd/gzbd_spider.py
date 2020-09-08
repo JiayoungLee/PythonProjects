@@ -13,7 +13,7 @@ import re;
 __wjw_region = "四川";
 __wjw_domain = "http://wsjkw.sc.gov.cn";
 __wjw_base_url = "/scwsjkw/gzbd01/ztwzlmgl.shtml";
-__wjw_page_count = 10;
+__wjw_page_count = 1;
 
 
 def gzbd_all_data():

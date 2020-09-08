@@ -272,9 +272,11 @@ def test_2(x, y="jayoung"):
 
 # 可变参数
 def test_3(*num):
-    count = 0;
+    count = 1;
+    print(len(num))
+    print(type(num));
     for i in num:
-        count += 1;
+        count *= i;
     return count;
 
 
@@ -292,11 +294,16 @@ def test_5(name, *, city):
         raise TypeError("Bad Type");
     print("name:%s, city:%s" % (name, city));
 
+
+def test_strip(str1):
+    return str1.strip();
+
+
 # 内置函数
-print(hex(16)); #  10进制转16进制
+print(hex(16));  # 10进制转16进制
 print(float("22.2"));
 print(print("djfkdjkf"));
-print(sum(range(1,101)));
+print(sum(range(1, 101)));
 print(sum(list(range(101))));
 
 if __name__ == "__main__":
@@ -312,4 +319,5 @@ if __name__ == "__main__":
     # test_4("JayoungLee", **{"city": "成都"});
 
     # test_5("Jayoung", city="cd");
+    # print(test_strip("  jfkd  "));
     pass;
